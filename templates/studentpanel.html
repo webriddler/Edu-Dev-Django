@@ -1,0 +1,297 @@
+{% extends 'index.html' %}
+{% block body %} 
+{% load static %}
+    <style>
+        a,a:hover{
+        text-decoration: none;
+        color: currentColor;
+        text-underline-position: none;
+      }
+      body{
+        font-family: "Roboto";
+        padding: 0;
+        margin: 0;
+      }
+      .nava{
+        font-size: 32px;
+        padding: 4px;
+        margin-top: 0.2%;
+      }
+      .navtext{
+        font-size: 24px;
+        color: #5f6368;
+        font-family: Quicksand;
+        font-weight: normal;
+
+      }
+      .ihs1:hover{
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px 1px #fbbc04;
+        color: #fbbc04;
+       
+      }
+      .title{
+            font-size: 28px;
+            line-height: 36px;
+            color: #202124;
+      }
+      .subtitle{
+        font-size: 16px;
+        line-height: 24px;
+        color: #5f6368;
+
+      }
+      .fic::before{
+        content: "| ";
+        margin-right: 5px;
+        color: grey;
+      }
+      .content:hover{
+        border: 1px solid #4285f4;
+      }
+      .content:hover .foot{
+        display:none;
+      }
+      .content2:hover{
+        border: 1px solid #fbbc04;
+      }
+      .content2:hover .foot2{
+        display:none;
+      }
+      .content3:hover{
+        border: 1px solid #34a853;
+      }
+      .content3:hover .foot3{
+        display:none;
+      }
+      .content4:hover{
+        border: 1px solid #ea4335;
+      }
+      .content4:hover .foot4{
+        display:none;
+      }
+      
+     
+              
+ </style>
+    <title>Edu-Dev</title>
+  </head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/">
+            <div>
+         <span class="material-icons" style="font-size: 20px;">first_page</span>
+         <span class=" nava navtext"> Edu Dev</span> 
+         <span style="font-size: 18px;"> Student Panel</span>
+     </div></a>
+    <!-- WEB NAV TITLE -->
+    <div class="d-flex bd-highlight ">
+  <div class="mr-auto bd-highlight" id="t2"  data-toggle="tooltip" data-placement="left" title="Want help ?">
+    <a href="help.html">
+    <span class="material-icons nava im ihs1" style="box-shadow: none;font-size: 28px; line-height: 40px;">
+      help_outline 
+      </span></a>
+  </div>
+  <div class="bd-highlight pr-1" id="t3"  data-toggle="tooltip" data-placement="bottom" title="Login">
+     <a href="login.html">
+    <span class="material-icons nava im " style="box-shadow: none;line-height: 38px;">
+      account_circle 
+      </span></a>
+  </div>
+      </div>
+
+</nav> 
+<div class="container mx-auto">
+<div class="row">
+   
+<div class="col">
+        <div class="container text-center mt-4 ">
+        <div class="title">Welcome, A.K Shah</div>
+        <div class="subtitle mt-2">Have your Study Material in your Place under Environment of Edu Dev Student Panel</div>
+        </div>
+
+<div class="container mt-4" style="padding: 0px 4%;">
+          <div class="row">
+            <div class="col-sm">
+                <a href="assignmentroom.html">
+                <div class="card mt-4 mr-2  ml-2 content" style="border-radius: 12px;">
+                  <div class="card-body">
+                    <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+                    <h5 class="card-title">
+                        Assignments Collection
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                  </div>
+                   <div class="bd-highlight">
+                        <img src="https://i.pinimg.com/originals/a0/5d/d2/a05dd24f27cca701b75a61a6cdd4a7cc.png"
+                        style="width: 100%;" class="mt-2 ">
+                   </div>
+                </div>
+                </div>
+                <div class="card-footer bg-transparent foot">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+          </a>
+          <a href="#">
+            <div class="card mt-4 mr-2  ml-2 content3" style="border-radius: 12px;">
+                  <div class="card-body p-0 m-0">
+                    <div class="d-flex bd-highlight">
+                    <div class="flex-grow-1 bd-highlight w-100">
+                    <h5 class="card-title m-4 mr-0">
+                        Check your performances
+                    </h5>
+                    
+                  </div>
+                   
+                        <img src="https://ssl.gstatic.com/trends_tpt/fb29f61e3b0419e1e745c9245d00d094c5357b2246bbdf17cd2b03d7349b2c72.png"
+                        style="width: 12%;" class="m-2">
+                   
+                </div>
+                </div>
+            </div></a>
+            <a href="#">
+            <div class="card mt-4 mr-2  ml-2 content2" style="border-radius: 12px;">
+                  <div class="card-body">
+                    <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+
+                    
+                    <h5 class="card-title">
+                        Online Test | Quiz
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                  </div>
+                   
+                    <img src="https://www.ryerson.ca/content/dam/google/teach-with-google-apps/quizzes-surveys/create-google-form/google-form"style="width: 26%; height: 26%;" class="m-2">
+                
+                   
+                </div>
+                </div>
+                <div class="card-footer bg-transparent foot2">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+          </a>
+       </div>
+       <div class="col-sm">
+        <a href="#">
+        <div class="card  mt-4 mr-2 ml-2 content4" style="border-radius: 12px;">
+
+                  <div class="card-body">
+                    <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+                    <h5 class="card-title">Notes | Projects | Reports</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                  </div>
+                   <div class="bd-highlight ">
+                    <img src="https://appradarcentral.com/wp-content/uploads/2017/07/Polaris-Office-for-LG.png"
+                        style="width: 98%;" class="mr-0 pr-0">
+                   </div>
+                </div>
+                </div>
+                <div class="card-footer bg-transparent foot4">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+          </a>
+            <a href="#">
+            <div class="card mt-4 mr-2  ml-2 content2" style="border-radius: 12px;">
+                  <div class="card-body p-0 m-0">
+                    <div class="d-flex bd-highlight">
+                    <div class="flex-grow-1 bd-highlight w-100">
+                    <h5 class="card-title m-4 mr-0">
+                        Fees Defaulter Status | None
+                    </h5>
+                    
+                  </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="55" class="mr-3" viewBox="0 0 172 172"
+                style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g id="Layer_1"><path d="M153.1875,59.125h-40.3125v-40.3125c0,-7.39062 -6.04687,-13.4375 -13.4375,-13.4375h-80.625c-7.39062,0 -13.4375,6.04688 -13.4375,13.4375v53.75v0v82.90938c0,6.18125 4.97188,11.15312 11.15313,11.15312h136.65938c7.39063,0 13.4375,-6.04687 13.4375,-13.4375v-80.625c0,-7.39062 -6.04687,-13.4375 -13.4375,-13.4375z" fill="#ffffff"></path><path d="M126.3125,83.3125v13.4375c0,2.28437 1.74687,4.03125 4.03125,4.03125h36.28125v-21.5h-36.28125c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125zM59.125,103.46875c-5.9125,0 -11.2875,-3.49375 -13.70625,-9.00312c-0.94063,-2.01562 0,-4.43438 2.15,-5.24063c2.01563,-0.94063 4.43437,0 5.24062,2.15c1.075,2.41875 3.62813,4.03125 6.31563,4.03125c3.7625,0 6.85313,-3.09063 6.85313,-6.85312c0,-2.28438 -1.075,-4.43438 -3.09063,-5.64375l-12.49688,-8.73437c-3.89688,-2.82187 -6.31563,-7.39062 -6.31563,-12.09375c0.13438,-8.33125 6.85313,-15.05 15.05,-15.05c6.04688,0 11.42188,3.62813 13.70625,9.1375c0.80625,2.01563 -0.13437,4.43437 -2.15,5.24063c-2.01562,0.80625 -4.43438,-0.13438 -5.24063,-2.15c-1.075,-2.55312 -3.49375,-4.16562 -6.31562,-4.16562c-3.7625,0 -6.85312,3.09062 -6.85312,6.85312c0,2.15 1.075,4.3 2.82187,5.64375l12.3625,8.73438c4.03125,2.6875 6.45,7.39063 6.45,12.3625c0.13438,8.0625 -6.58437,14.78125 -14.78125,14.78125z" fill="#34a853"></path><path d="M59.125,55.09375c-2.28438,0 -4.03125,-1.74687 -4.03125,-4.03125v-4.03125c0,-2.28438 1.74687,-4.03125 4.03125,-4.03125c2.28438,0 4.03125,1.74687 4.03125,4.03125v4.03125c0,2.28438 -1.74687,4.03125 -4.03125,4.03125zM59.125,107.5c-2.28438,0 -4.03125,-1.74688 -4.03125,-4.03125v-4.03125c0,-2.28437 1.74687,-4.03125 4.03125,-4.03125c2.28438,0 4.03125,1.74688 4.03125,4.03125v4.03125c0,2.28437 -1.74687,4.03125 -4.03125,4.03125z" fill="#34a853"></path><path d="M153.1875,55.09375h-24.1875c-2.28437,0 -4.03125,1.74687 -4.03125,4.03125c0,2.28438 1.74688,4.03125 4.03125,4.03125h24.1875c5.24062,0 9.40625,4.16563 9.40625,9.40625v80.625c0,5.24062 -4.16563,9.40625 -9.40625,9.40625h-39.10312c1.74687,-2.6875 2.82187,-5.9125 2.82187,-9.40625v-134.375c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875h-80.625c-9.675,0 -17.46875,7.79375 -17.46875,17.46875v134.375c0,9.675 7.79375,17.46875 17.46875,17.46875h134.375c9.675,0 17.46875,-7.79375 17.46875,-17.46875v-80.625c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875zM9.40625,153.1875v-134.375c0,-5.24062 4.16563,-9.40625 9.40625,-9.40625h80.625c5.24063,0 9.40625,4.16563 9.40625,9.40625v134.375c0,5.24062 -4.16562,9.40625 -9.40625,9.40625h-80.625c-5.24062,0 -9.40625,-4.16563 -9.40625,-9.40625z" fill="#4285f4"></path><g fill="#34a853"><path d="M59.125,138.40625c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z"></path></g></g></g>
+                </svg>
+                <!-- For Defaulter Status -->
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="110" class="mt-2 ml-1"
+                viewBox="0 0 172 172"
+                style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g id="Layer_1"><path d="M153.1875,59.125h-40.3125v-40.3125c0,-7.39062 -6.04687,-13.4375 -13.4375,-13.4375h-80.625c-7.39062,0 -13.4375,6.04688 -13.4375,13.4375v53.75v0v82.90938c0,6.18125 4.97188,11.15312 11.15313,11.15312h136.65938c7.39063,0 13.4375,-6.04687 13.4375,-13.4375v-80.625c0,-7.39062 -6.04687,-13.4375 -13.4375,-13.4375z" fill="#ffffff"></path><path d="M126.3125,83.3125v13.4375c0,2.28437 1.74687,4.03125 4.03125,4.03125h36.28125v-21.5h-36.28125c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125zM59.125,103.46875c-5.9125,0 -11.2875,-3.49375 -13.70625,-9.00312c-0.94063,-2.01562 0,-4.43438 2.15,-5.24063c2.01563,-0.94063 4.43437,0 5.24062,2.15c1.075,2.41875 3.62813,4.03125 6.31563,4.03125c3.7625,0 6.85313,-3.09063 6.85313,-6.85312c0,-2.28438 -1.075,-4.43438 -3.09063,-5.64375l-12.49688,-8.73437c-3.89688,-2.82187 -6.31563,-7.39062 -6.31563,-12.09375c0.13438,-8.33125 6.85313,-15.05 15.05,-15.05c6.04688,0 11.42188,3.62813 13.70625,9.1375c0.80625,2.01563 -0.13437,4.43437 -2.15,5.24063c-2.01562,0.80625 -4.43438,-0.13438 -5.24063,-2.15c-1.075,-2.55312 -3.49375,-4.16562 -6.31562,-4.16562c-3.7625,0 -6.85312,3.09062 -6.85312,6.85312c0,2.15 1.075,4.3 2.82187,5.64375l12.3625,8.73438c4.03125,2.6875 6.45,7.39063 6.45,12.3625c0.13438,8.0625 -6.58437,14.78125 -14.78125,14.78125z" fill="#ea4335"></path><path d="M59.125,55.09375c-2.28438,0 -4.03125,-1.74687 -4.03125,-4.03125v-4.03125c0,-2.28438 1.74687,-4.03125 4.03125,-4.03125c2.28438,0 4.03125,1.74687 4.03125,4.03125v4.03125c0,2.28438 -1.74687,4.03125 -4.03125,4.03125zM59.125,107.5c-2.28438,0 -4.03125,-1.74688 -4.03125,-4.03125v-4.03125c0,-2.28437 1.74687,-4.03125 4.03125,-4.03125c2.28438,0 4.03125,1.74688 4.03125,4.03125v4.03125c0,2.28437 -1.74687,4.03125 -4.03125,4.03125z" fill="#ea4335"></path><path d="M153.1875,55.09375h-24.1875c-2.28437,0 -4.03125,1.74687 -4.03125,4.03125c0,2.28438 1.74688,4.03125 4.03125,4.03125h24.1875c5.24062,0 9.40625,4.16563 9.40625,9.40625v80.625c0,5.24062 -4.16563,9.40625 -9.40625,9.40625h-39.10312c1.74687,-2.6875 2.82187,-5.9125 2.82187,-9.40625v-134.375c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875h-80.625c-9.675,0 -17.46875,7.79375 -17.46875,17.46875v134.375c0,9.675 7.79375,17.46875 17.46875,17.46875h134.375c9.675,0 17.46875,-7.79375 17.46875,-17.46875v-80.625c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875zM9.40625,153.1875v-134.375c0,-5.24062 4.16563,-9.40625 9.40625,-9.40625h80.625c5.24063,0 9.40625,4.16563 9.40625,9.40625v134.375c0,5.24062 -4.16562,9.40625 -9.40625,9.40625h-80.625c-5.24062,0 -9.40625,-4.16563 -9.40625,-9.40625z" fill="#4285f4"></path><g fill="#ea4335"><path d="M59.125,138.40625c-4.4528,0 -8.0625,3.6097 -8.0625,8.0625c0,4.4528 3.6097,8.0625 8.0625,8.0625c4.4528,0 8.0625,-3.6097 8.0625,-8.0625c0,-4.4528 -3.6097,-8.0625 -8.0625,-8.0625z"></path></g></g></g>
+            </svg> -->
+                   
+                </div>
+                </div>
+            </div></a>
+            <a href="">
+            <div class="card  mt-4 mr-2 ml-2 content3" style="border-radius: 12px;">
+                  <div class="card-body">
+                    <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-fill bd-highlight">
+                    <h5 class="card-title">
+                        Online Study Support <header></header>
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    
+                  </div>
+                   <div class="bd-highlight">
+                    <img src="https://pbs.twimg.com/profile_images/908034541134110720/sxmFKyFI.jpg"
+                      style="width: 120px;" class="mt-0 mr-1 ml-1" >
+                   </div>
+                </div>
+                </div>
+                <div class="card-footer bg-transparent foot3">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+              </a>
+       </div>
+
+   </div>
+</div>
+<div class="container ml-2   d-none d-lg-block d-xl-block" style="margin-top: 6%;">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-grow-1 bd-highlight pr-4">
+    <p class="text-muted">Only you can see your page. Except assignments, projects, notice and other content marked as group contents are accessible to all students, but your profile, performances in various subjects and other private info are completely safe with us. Thanks for your Trust on us.
+      </p>
+      </div>
+      <div class="pt-1 bd-highlight">
+        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/privacypolicy_icon_48x48_0a9fd77820564aed2e74f410ec577314.png">
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+</div>
+</div>
+
+<div class="modal-footer mt-5" style="border-bottom: solid 1px #DEE2E6;padding: 6px;">
+  <span class="fic"><i class="fab fa-facebook-f"></i></span>
+  <span class="fic"><i class="fab fa-twitter "></i></span>
+  <span class="fic"><i class="fab fa-youtube"></i></span>
+  <span class="fic"><i class="fab fa-linkedin-in"></i></span>
+  
+  </div>
+<footer class="page-footer font-small  mb-1 text-muted" style="background-color: #F7F7F7">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 d-none d-lg-block d-xl-block">© 2020 Copyright : Edu Dev | Bulit under supervision of Mr. Shah & Company
+  </div>
+  
+  <div class="footer-copyright text-center py-3 d-sm-block d-lg-none">© 2020 Copyright : Edu Dev | Mr. Shah
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
+  </body>
+  {% endblock body %}
+</html> 

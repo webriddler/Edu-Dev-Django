@@ -1,0 +1,984 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="icon" href="icon_path" type="image/icon type"> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- End Bootsrtap Link -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Heebo|Quicksand|Slabo+27px&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <!-- End  -->
+  {% block body %}
+
+      <style>
+      a,a:hover{
+        text-decoration: none;
+        color: currentColor;
+        text-underline-position: none;
+      }
+      body{
+        font-family: "Roboto";
+        padding: 0;
+        margin: 0;
+      }
+      ul{
+        padding: 0;
+        list-style: none;
+      }
+      .li {
+          padding-left: 1em; 
+          text-indent: -.7em;
+        }
+      .li::before {
+        content: "• ";
+        color: #4285f4;
+      }
+      .nava{
+        font-size: 32px;
+      }
+      .im{
+        margin-right: 10px;
+      }
+      .ch{
+        display: inline-block;
+        margin-left: 10px;
+      }
+      .ch:hover{
+        border: none;
+      }
+      .ihs3,.ihs4{
+        color: black;
+      }
+      .ihs1,.ihs2{
+        color:#3c3e40;
+      }
+      .ihs1:hover{
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px 1px #4285f4;
+        color: #017bff;
+       
+      }
+      .ihs2:hover{
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px 1px #fbbc04;
+        color: #fbbc04;
+       
+      }
+      .ihs3:hover{
+        border-radius: 50%;
+        box-shadow: 1px 1px 4px 1px #ea4335;
+        color: #ea4335;
+       
+      }
+      .ihs4:hover{
+       color: #34a853;
+       
+      }
+      .hd{
+        font-weight: 500;
+        font-size: 20px;
+        color: #202124;
+      }
+      .cf1:hover{
+        box-shadow: 1px 1px 4px 1px #4285f4;
+        border-radius: 12px;
+        border-color: #4285f4
+      }
+      .ulh{
+        font-size: 14px;
+        font-family:Quicksand;
+        font-weight: 600;
+      }
+      .wc{
+        margin-top: 45px;
+        border-bottom: none;
+        border-radius: 10px 10px 0px 0px;
+        padding-top: 18px;
+      }
+      .wp{
+        width: 100%;
+        border:1px solid #dfdfdf;
+        padding: 15px 17px 20px 17px;
+        
+      }
+      .c1:hover{
+        border-color: #34a853;
+        box-shadow: 1px 1px 4px 1px rgba(52,168,83,0.2);
+
+      }
+      .c2:hover{
+        border-color: #4285f4;
+        box-shadow: 1px 1px 4px 1px rgba(66,133,244,0.2);
+
+      }
+      .c3:hover{
+        border-color: #fbbc04;
+        box-shadow: 1px 1px 4px 1px rgba(251,188,4,0.2);
+
+      }
+      .ca{
+        box-shadow: 1px 1px 4px 1px rgba(244,0,16,0.7);
+
+      }
+      .ca:hover{
+        border: 1px solid #ea4335;
+      }
+      .rsc{
+        border-radius: 12px 12px 0px 0px;
+
+      }
+      .fic::before{
+        content: "| ";
+        margin-right: 5px;
+        color: grey;
+      }
+      *:focus{
+        outline: none;
+      }
+
+      {% if duplicacy == 'True' or subs == 'False' %}
+      .nameok{
+        border-color: #34a853;
+        color: green;
+
+      }
+      .emailerror{
+        border-color: #ea4335;
+        color: red;
+
+      
+      {% endif %}
+      .errorlist{
+        display: none;
+      }
+      .lst:hover{
+        color: black;
+        font-size: 14px;
+      }
+      .deadlinks:hover{
+        text-decoration: underline;
+      }
+      .menu:hover{
+        color: black;
+      }
+      .numberCircle {
+      border-radius: 50%;
+    margin-top: 2.5px;
+    width: 28px;
+    padding: 1%;
+    background: #3c3e40;
+    border: 2px solid #3c3e40;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    display: inline-block;
+    padding-top: 0px;
+    }
+    .numberCircle:hover{
+      background-color: black;
+      border-color: black;
+
+    }
+    
+    .numberCircle2 {
+    border-radius: 50%;
+    width: 50%;
+    padding: 5%;
+    background: #3c3e40;
+    border: 2px solid #3c3e40;
+    color: white;
+    text-align: center;
+    font-size: 62px;
+    display: inline-block;
+  }
+  .login{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    margin-top: -1%;
+    box-shadow: 2px 2px 2px 0px #dfdfdf;
+
+  }
+  .lgb:hover{
+    background-color: #6495f5;
+    color: white;
+
+  }
+  .lgb2:hover{
+    background-color: #f20d2299;
+    color: white;
+  }
+  .logincontent{
+    width: 100%;
+    background-color: #3c3e40;
+    border-radius: 42px;
+    margin-top: 5px;
+    padding: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .loginreport{
+    display: none;
+  }
+  .loginfoot:hover .loginreport{
+    display: contents;
+  }
+  .loginreport:hover{
+    text-decoration: underline;
+    color: #4285f4;
+  }
+  .loginreport:active{
+    color: red;
+  }
+  
+
+      
+    </style>
+    <title>Edu-Dev</title>
+  </head>
+<body>
+   <nav class="">
+    <!-- Starting of the Navigation Bar -->
+    <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-white p-2">
+      <!-- hIDDEN naV cONTENT -->
+      <!-- cARD 1 -->
+          <div class="card ch" style="width: 18rem;">
+        <div class="card-body">
+            <div class="d-flex bd-highlight">
+          <div class="p-0 flex-shrink-1 bd-highlight">
+            <span class="material-icons nava im">
+              face 
+              </span>
+          </div>
+          <div class="p-0 w-100 bd-highlight">
+              <a href="#mfs">
+            <button type="button" class="btn btn-primary">
+            Message for Students
+          <span class="badge badge-light">
+            {{st}}
+          </span>
+                    </button></a>
+          </div>
+            </div>
+      </div>
+        </div>
+        <!-- eND CARD1 -->
+        <!-- Card 2 -->
+          <div class="card ch" style="width: 18rem;">
+        <div class="card-body">
+            <div class="d-flex bd-highlight">
+          <div class="p-0 flex-shrink-1 bd-highlight">
+            <span class="material-icons nava im">
+              group 
+              </span>
+          </div>
+          <div class="p-0 w-100 bd-highlight">
+            <a href="#mft">
+            <button type="button"  class="btn btn-warning p-2">
+            Message for Teachers
+          <span class="badge badge-light">
+            {{tc}}
+          </span>
+                    </button></a>
+          </div>
+            </div>
+      </div>
+        </div>
+          <!-- End of Card2 -->
+            <!-- Card3 -->
+          <div class="card ch" style="width: 18rem;">
+        <div class="card-body">
+            <div class="d-flex bd-highlight">
+          <div class="p-0 flex-shrink-1 bd-highlight">
+            <span class="material-icons nava im">
+              notifications_active 
+              </span>
+          </div>
+          <div class="p-0 w-100 bd-highlight">
+            <a href="#onf">
+            <button type="button" class="btn btn-danger ">
+            Other Notifications
+          <span class="badge badge-light">
+            {{nf}}
+          </span>
+                    </button></a>
+          </div>
+            </div>
+      </div>
+        </div>
+          <!-- End of Card3 -->
+          <!-- New Small Card -->
+          <div class="card ch " style="width: 4.7rem;">
+        <div class="card-body">
+          <a href="admin">
+            <span class="material-icons nava im ihs1" id="t4" data-toggle="tooltip" data-placement="bottom" title="Admin Panel">
+              power_settings_new 
+              </span></a>
+
+      </div>
+        </div>
+        <!-- End of New Small Card -->
+    <!-- New Small Card -->
+              <div class="card ch" style="width: 4.7rem;">
+            <div class="card-body"><a href="instanthelp">
+                <span class="material-icons-outlined nava im ihs3" id="t5" data-toggle="tooltip" data-placement="bottom" title="Report an Issue">
+                  report 
+                  </span></a>
+          </div>
+            </div>
+            <!-- End of New Small Card -->
+    <!-- New Small Card -->
+              <div class="card ch" style="width: 4.7rem;">
+            <div class="card-body"><a href="instanthelp">
+                <span class="material-icons-outlined nava im ihs4" id="t6" data-toggle="tooltip" data-placement="bottom" title="Feedback">
+                  thumb_up
+                  </span></a>
+          </div>
+            </div>
+            <!-- End of New Small Card -->
+            <!-- New Small Card -->
+              <div class="card ch" style="width: 4.7rem;">
+            <div class="card-body">
+              <a href="">
+                <span class="material-icons nava im ihs2" id="t7" data-toggle="tooltip" data-placement="bottom" title="Updation">
+                  refresh 
+                  </span></a>
+          </div>
+            </div>
+            <!-- End of New Small Card -->
+    </div>
+  </div>          
+  <nav class="navbar sticky-top w-100 navbar-white bg-white p-3 bg-white rounded " style="box-shadow: 1px 1px 2px 0px #98999b;">
+    <button class="navbar-toggler d-none d-lg-block d-xl-block" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" id="t1" data-toggle="tooltip" data-placement="bottom" title="Quick Review">
+          <span class="material-icons nava menu" style="color: #3c3e40">apps</span>
+    </button>
+    <!-- WEB NAV TITLE -->
+    <span style="font-size: 24px;font-family: Quicksand;font-weight: 600;" class="d-none d-lg-block d-xl-block">Edu Dev
+      <span style="font-size: 20px;font-weight: normal;font-family: Roboto;">a learning platform of SHCSD</span>
+    </span>
+
+    <!-- Mobile View -->
+    <span style="font-size: 24px;font-family: Quicksand;font-weight: 600;" class="d-sm-block d-lg-none">Edu Dev
+    </span>
+    <!-- End of Mobile View -->
+    <!-- End -->
+    <div class="d-flex bd-highlight ">
+  <div class="mr-auto bd-highlight" id="t2"  data-toggle="tooltip" data-placement="left" title="Want help ?">
+    <a href="instanthelp">
+    <span class="material-icons nava im ihs2" style="box-shadow: none;font-size:33px;">
+      help_outline 
+      </span></a>
+  </div>
+  <div class="bd-highlight" >
+      {% if user.is_authenticated %}
+      <a  data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+      <div class="numberCircle mr-2">
+        
+         {{user.first_name|slice:':1'}}
+      </div>
+    </a>
+      {% else %}  
+     <a href="login">
+    <span class="material-icons nava im ihs1" id="t3"  data-toggle="tooltip" data-placement="bottom" title="Login" style="box-shadow: none;">
+      account_circle 
+      </span>
+    </a>
+      {% endif %}
+  </div>
+      </div>
+  </nav>
+
+  <!-- Login Nav Bar -->
+      {% if user.is_authenticated %}
+
+<div class="mr-1 login">
+<div class="collapse multi-collapse float-right" id="multiCollapseExample1">
+        <div class="card mt-2">
+  <div class="card-body pr-4 pl-4 pb-0">
+    <div class="p-2 m-2">
+    <div class="d-flex justify-content-center mt-3 ">
+    <h5 class="card-title numberCircle2 mb-0">
+      {{user.first_name|slice:':1'}}
+    </h5>
+  </div>
+  <div class="mx-auto logincontent">
+    <div class="text-center" style="color:white;">
+      {{user.first_name}} {{user.last_name}}
+     <br>
+      {{user.username}}@edudev.com
+
+</div>
+</div>
+    
+  </div>
+</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"></li>
+      {% if user.is_staff %}
+    <li class="list-group-item">
+    <a href="admin" class="btn border lgb " type="submit" style="width: 48%;">Panel</a><a href="logout" class="ml-2 btn border lgb2" type="submit" style="width: 48%;">Logout</a>
+  </li>
+    {% else %}
+    <li class="list-group-item">
+    <a href="studentpanel" class="btn border lgb " type="submit" style="width: 48%;">Panel</a><a href="logout" class="ml-2 btn border lgb2" type="submit" style="width: 48%;">Logout</a>
+    </li>
+
+
+
+      {% endif %}
+      <div class="p-2 pr-3 text-right" style="background-color: #f7f7f7;">
+    <small class="text-muted loginfoot">Last Login 
+      {% if ck|date == dtime|date %}
+        Today at {{ck|time}}
+      {% else %}
+
+      {{ck}}
+
+      {% endif %} 
+      <span class="loginreport">
+        <a href="instanthelp">
+      Don't you ?</span>
+    </a>
+  </small> 
+      </div>
+  </ul>
+</div>
+</div>
+</div> 
+{% endif %}
+<!-- Ending of the login Nav -->
+</nav> 
+<!-- Ending OF the NAv BAr -->
+<div class="container mx-auto">
+        {% if subs == 'False' %}
+          <a href="">
+    <div class="alert alert-danger" role="alert" style="background-color: #ea4335;color: white;">
+        Wrong Email has given, correct it and try again.
+         <a href="">
+    <span aria-hidden="true" class="close">&times;</span>
+    </a>
+      </div>
+    </a>
+   {% endif %}
+    
+      {% if duplicacy == 'True'%}
+    <a href="">
+    <div class="alert alert-danger" role="alert" style="background-color: #ea4335;color: white;">
+     Email Alrady Exist {{subname}} : You have subscribed earlier with given Email
+    <a href="">
+    <span aria-hidden="true" class="close">&times;</span>
+      </a>
+  </div>
+</a>
+  {% endif %}
+
+  {% if duplicacy == 'False' %}
+  <a href="">
+   <div class="alert alert-success" role="success" style="background-color: #34a853;color: white;">
+     Thanks for Subscription {{subname}}
+     <a href="">
+    <span aria-hidden="true" class="close">&times;</span>
+    </a>
+  </div>
+</a>
+
+
+  {% endif %}
+<div class="row mt-4">
+
+    <div class="col" style="border: 0px solid; ">
+
+      <!-- TOP HEADING -->
+      <div class="hd ml-1">
+        Headlines
+      </div>
+      <!-- END OF TOP HEADING -->
+      <!-- START oF THE STATIC CARD Headlines-->
+          <div class="card cf1 w-100 mt-3" style="border-radius: 12px;">
+            <a href="studentpanel">
+      <div class="card-body " style="padding: 14px; ">
+        <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <p class="card-text" style="font-family: Quicksand;">
+          <span style="color: #4285f4;font-weight: 620;">Edu Dev Coverage : </span>
+        For having your Study Materials plus Edu-support move on
+        </p>
+          </div>
+          <div class="bd-highlight">
+            <span class="material-icons" style="color: #4285f4">
+             keyboard_arrow_right 
+              </span>
+          </div>
+        </div>
+
+     </div>
+   </a>
+  </div>
+<!-- END OF THE ISt STATIC CARD Healines -->
+<!-- Super Headings -->
+<div class="card w-100 mt-3"  style="border-radius: 12px 12px 0px 0px;border-bottom: none;">
+      <div class="card-body" style="padding: 16px 14px;padding-bottom: 0px; ">
+        <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <!-- Super Heading Starting -->
+            {% for data in head_data %}
+            {% if data.concern == 'Headline' %}
+            <h5 class="mb-0" >
+              {{data.title}}
+            </h5>
+            {% endif %}
+            {% endfor %}
+        <!-- End -->
+        <div class="text-muted "><small>What makes Today special</small></div>
+        <ul class="ulh" >
+          <!-- Sub Headings -->
+          {% for data in head_data %}
+          {% if data.day == 'Today' %}
+            {% if data.active and data.concern == 'Students' %}
+             <li class="mt-2 li" style="">
+              {{data.title}}
+              <a href="#mfs" >
+              <small class="text-muted ml-2" style="display: block;"><b>Content</b>: 
+                <span class="deadlinks">Students Panel
+                </span>
+                </small></a>
+              </li> 
+              {% endif %}
+              {% if data.active and data.concern == 'Teachers' %}
+              <li class="mt-2 li" style="">
+                {{data.title}}
+                <a href="#mft" >
+              <small class="text-muted ml-2" style="display: block;"><b>Content</b>: 
+                <span class="deadlinks">Teachers Panel
+                </span>
+                </small></a>
+              </li> 
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <!-- End -->
+         </ul>
+         </div>
+          <div class="bd-highlight">
+            <!-- Image Area -->
+            {% for data in head_data %}
+            {% if data.concern == 'Headline' %}
+              {% if data.image %}
+             <img src="{{data.image}}"style="width: 110px;height: 90px;border-radius: 12px;">
+             <!-- End -->
+               {% endif %}
+            {% endif %}
+
+          {% endfor %}
+            </div>
+        </div>
+
+     </div>
+  </div>
+  <!-- Super heading bottom links -->
+  <div class="card w-100 p-2"  id="onf" style="border-top:none;border-radius: 0px 0px 10px 10px; padding-bottom: 15px;">
+    <small class="text-muted" style="text-align: right;">
+      <a href="" class="lst newc">
+       Coverage Today till {{dtime|time}} 
+     </a>
+  </small>
+      </div>
+      <!-- Ending -->
+
+      <!-- Ending of the Super Heading -->
+
+<!-- Heading 1 -->
+{% for data in head_data %}
+  {% if data.active %}
+    {% if data.concern == 'Notification' or data.concern == 'Alert' %}
+          {% if data.day == 'Today' and data.concern == 'Alert' %}
+          <div class="card ca w-100 mt-3" id="onf" style="border-radius: 12px;">
+          {% else %}
+            <div class="card c1 w-100 mt-3" id="onf" style="border-radius: 12px;">
+          {% endif %}
+      
+    <div class="card-body" style="padding: 16px 14px; ">
+        <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <!-- Heading 1 Title -->
+            <h5 class="mb-0">
+              {{data.title}}
+            </h5>
+            <div class="text-muted"><small>
+             {% if data.day == 'Today' %}
+                  {% if data.created|time != data.last_modified|time %}
+
+                  {{data.day}} at {{data.created|time}} | Last Modified at {{data.last_modified|time}}
+
+                  {% else %}
+                    {{data.day}} at {{data.created|time}}
+                  {% endif %}
+
+                {% elif data.day == 'Yesterday'%}
+                    {{data.day}} at {{data.created|time}}
+                {% else %}
+                  {{data.created}}
+                {% endif %}
+            </small></div>
+            <!-- End -->
+            <!-- Here the condition if point = 1 than-->
+            <p class="mt-2" style="font-size: 14px;">
+              {{data.description}}
+            </p>
+
+            <!-- Else it will be shown in points with ul -->
+            <!-- End -->
+          </div>
+          {% if data.image %}
+          <div class="bd-highlight">
+            <!-- Image Area -->
+             <img src="{{data.image}}"style="width: 110px;height: 90px;border-radius: 12px;">
+             <!-- End -->
+            </div>
+          {% endif %}
+        </div>
+
+     </div>
+     {% if data.day == 'Today' %}
+     <span class="mr-2" style="right: 0; position: absolute;font-size: 30px;margin-top: -8px;color: #ea4335">
+     •
+   </span>
+   {% endif %}
+  </div>
+      {% endif %}
+    {% endif %}
+{% endfor %}
+
+<!-- Student's Panel Starting -->
+    <div class="hd ml-1 " id="mfs" style="margin-top: 3pc;">
+        For Students
+      </div>
+    {% for data in head_data %}
+      {% if data.active and data.concern == 'Students' %}
+      <!-- First Heading -->
+      <div class="card c2 w-100 mt-3" style="border-radius: 12px;">
+    <div class="card-body" style="padding: 16px 14px; ">
+        <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <!-- Heading 1 Title -->
+            <h5 class="mb-0">
+              {{data.title}}
+
+            </h5>
+            <div class="text-muted "><small> 
+               {% if data.day == 'Today' %}
+                  {% if data.created|time != data.last_modified|time %}
+
+                  {{data.day}} at {{data.created|time}} | Last Modified at {{data.last_modified|time}}
+
+                  {% else %}
+                    {{data.day}} at {{data.created|time}}
+                  {% endif %}
+
+                {% elif data.day == 'Yesterday'%}
+                    {{data.day}} at {{data.created|time}}
+                {% else %}
+                  {{data.created}}
+                {% endif %}
+             </small></div>
+            <!-- End -->
+            <!-- Here the condition if point = 1 than-->
+            <p class="mt-2" style="font-size: 14px;">
+              {{data.description}}
+
+            </p>
+            <!-- Else it will be shown in points with ul -->
+            <!-- End -->
+          </div>
+          {% if data.image %}
+          <div class="bd-highlight">
+            <!-- Image Area -->
+             <img src="{{data.image}}"style="width: 110px;height: 90px;border-radius: 12px;">
+             <!-- End -->
+            </div>
+          {% endif %}
+        </div>
+
+     </div>
+     {% if data.day == 'Today' %}
+     <span class="mr-2" style="right: 0; position: absolute;font-size: 30px;margin-top: -8px;color: #ea4335">
+     •
+   </span>
+   {% endif %}
+  </div>
+  {% endif %}
+{% endfor %}
+  <!-- Ending of the First Heading  -->
+<!-- Ending of the Student PAnel -->
+
+  <!-- Starting of the Teacher's Panel -->
+   <div class="hd ml-1" id="mft" style="margin-top: 3pc">
+        For Teachers
+      </div>
+      <!-- Starting of the Teacher's Headings -->
+      {% for data in head_data %}
+        {% if data.active and data.concern == 'Teachers' %}
+
+      <div class="card c3 w-100 mt-3" style="border-radius: 12px;">
+    <div class="card-body" style="padding: 16px 14px; ">
+        <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <!-- Heading 1 Title -->
+            <h5 class="mb-0">
+              {{data.title}}
+
+            </h5>
+            <div class="text-muted"><small> 
+                {% if data.day == 'Today' %}
+                  {% if data.created|time != data.last_modified|time %}
+
+                  {{data.day}} at {{data.created|time}} | Last Modified at {{data.last_modified|time}}
+
+                  {% else %}
+                    {{data.day}} at {{data.created|time}}
+                  {% endif %}
+
+                {% elif data.day == 'Yesterday'%}
+                    {{data.day}} at {{data.created|time}}
+                {% else %}
+                  {{data.created}}
+                {% endif %}
+
+                
+             </small></div>
+            <!-- End -->
+            <!-- Here the condition if point = 1 than-->
+            <p class="mt-2" style="font-size: 14px;">
+              {{data.description}}
+
+            </p>
+            <!-- Else it will be shown in points with ul -->
+            <!-- End -->
+          </div>
+          {% if data.image %}
+          <div class="bd-highlight">
+            <!-- Image Area -->
+             <img src="{{data.image}}"style="width: 110px;height: 90px;border-radius: 12px;">
+             <!-- End -->
+            </div>
+          {% endif %}
+        </div>
+
+     </div>
+     {% if data.day == 'Today' %}
+     <span class="mr-2" style="right: 0; position: absolute;font-size: 30px;margin-top: -8px;color: #ea4335">
+     •
+   </span>
+   {% endif %}
+  </div>
+  {% endif %}
+{% endfor %}
+<!-- Ending of the Teacher's panel -->
+</div>
+    <!-- Fake Static/Hideen Card for Space -->
+    <!-- Desktop -->
+    <div class="col-md-auto d-none d-lg-block d-xl-block" style="width: 1pc;" ></div>
+    <!-- End -->
+    <!-- Start of the Right HAnd  Side CArd -->
+    <div class="col col-lg-4 d-none d-lg-block d-xl-block" style="border: 0px solid;max-width: 95%;">
+      <!-- Weather Report -->
+      <div class="card wc  p-3">Edu Dev Weather Report
+      </div>  
+      <div class="wp ml-0">
+      <a class="weatherwidget-io" href="https://forecast7.com/en/31d3375d58/jalandhar/" data-font="Roboto" data-days="3" data-theme="pure" data-accent="rgba(194, 195, 196, 0.09)" data-highcolor="#ea4335" data-lowcolor="#4285f4" data-suncolor="#fbbc04" data-raincolor="#4285f4" data-snowcolor="#34a853">Getting your Weather</a>
+    <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+  </div>
+  <div class="card w-100 p-3" style="border-top:none;border-radius: 0px 0px 10px 10px">
+    <small class="text-muted" style="position: relative;text-align: right;">
+     <a href="https://forecast7.com/en/31d3375d58/jalandhar/">For more visit</a>
+  </small>
+      </div> 
+    <!-- Ending of the Weather Report-->
+    <!-- Feedback -->
+    <div class="card mt-4" style="border-radius: 12px;">
+      <div class="card-header rsc" style="text-align: center;">
+        Knowing facts : What is Edu Dev 
+      </div>
+      <div class="card-body">
+
+        <p class="card-text" id="subt">
+          Edu Dev is a open source learning platform of Seth Hukam Chand SD Public SR. SEC Public School located at Jal. which helps in spreading learning information with students.
+        </p>
+        
+      </div>
+    </div>
+    <!-- Ending -->
+  <!-- form subscription -->
+  
+      <form class="text-center border border-grey p-5 mt-4" id="subsform" method="post"  style="border-radius: 14px;">
+          {% csrf_token %}
+    <p class="h4 mb-4">Subscribe</p>
+
+    <p>Join our mailing list for having all updates at your place.</p>
+
+    <p style="font-family: Quicksand;">
+        Happy to Serve You
+    </p>
+    
+      {{form}}
+       {% if subs == 'False'%}
+    <a href="">
+    <div class="alert alert-danger mt-4" role="alert">
+      Invalid Email has Given
+      </div>
+      </a>
+   
+
+    {% elif duplicacy == 'True'%}
+    <a href="">
+    <div class="alert alert-danger mt-4" role="alert">
+     Email Already Exist
+  </div>
+  </a>
+    {% elif duplicacy == 'False' %}
+    <a href="">
+    <div class="alert alert-success mt-4" role="alert">
+     Thanks for your Subscription
+  </div>
+  </a>
+    {% else %}
+    <button class="mt-4 btn btn-primary btn-block" type="submit">Submit</button>
+    {% endif %}
+      </form>
+
+    <!-- Name -->
+    <!-- <input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name" name="name" required>
+    <input type="email" id="invalidCheck29" name="email" class="form-control mb-4" placeholder="E-mail" required>
+ -->
+    <!-- Sign in button -->
+<!-- form subscription -->
+
+    <!-- Starting of the Feature Post -->
+      <div class="card W-100 rsc mt-4">
+        <div class="card-header rsc">
+          Upcoming Events
+        </div>
+        <ul class="list-group list-group-flush" style="font-size: 14px;">
+
+          {% for event in event_data %}
+            {% if event.active %}
+            <li class="list-group-item">{{event.date}} | 
+            {{event.event_name}}
+          </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+          </div>
+          <div class="card  w-100 p-2" style="border-top:none;border-radius: 0px 0px 12px 12px">
+          <small class="text-muted" style="position: relative;text-align: right;">
+            <div class="lst">
+          Last updated : {{lsmdet.last_modified|time}} | {{lsmdet.last_modified|date}} 
+            </div>
+             </small>
+            </div>
+            <!-- Ending of the Feature Post -->
+           
+  </div>
+    <!-- End of the Right Hand Side Card -->
+</div>
+  <!-- Mobile Subscription -->
+  
+      <div class="card text-center d-sm-block d-lg-none mx-auto" style="border:none;">
+
+        <form class="text-center p-5 mt-3" method="post"  style="border: none;">
+          {% csrf_token %}
+    <p class="h4 mb-4">Subscribe</p>
+
+    <p class="pl-4 pr-4">Join our mailing list. For having all updates .</p>
+
+    <p style="font-family: Quicksand;">
+        Happy to Serve You
+    </p>
+    
+     <div style="width: 32%;display: inline-block;">{{form.name}}</div> 
+     <div class="ml-1" style="width: 58%;display: inline-block;">{{form.email}}</div> 
+     <div class="pl-3 pr-3">
+       {% if subs == 'False'%}
+    <a href="">
+    <div class="alert alert-danger mt-2" role="alert">
+      Invalid Email has Given
+      </div>
+      </a>
+   
+
+    {% elif duplicacy == 'True'%}
+    <a href="">
+    <div class="alert alert-danger mt-2" role="alert">
+     Email Already Exist
+  </div>
+  </a>
+    {% elif duplicacy == 'False' %}
+    <a href="">
+    <div class="alert alert-success mt-2" role="alert">
+     Thanks for your Subscription
+  </div>
+  </a>
+    {% else %}
+  
+    <button class="t-2 btn btn-primary btn-block" type="submit">Submit</button>
+    {% endif %}
+      </form>
+</div>
+    </div>
+      </div>
+    <!-- End -->
+</div>
+
+<!-- Footer -->
+
+ <div class="modal-footer" style="border-bottom: solid 1px #DEE2E6; margin-top: 5%;padding: 6px;">
+  <span class="fic"><i class="fab fa-facebook-f"></i></span>
+  <span class="fic"><i class="fab fa-twitter "></i></span>
+  <span class="fic"><i class="fab fa-youtube"></i></span>
+  <span class="fic"><i class="fab fa-linkedin-in"></i></span>
+  
+  </div>
+<footer class="page-footer font-small  mb-1 text-muted" style="background-color: #F7F7F7">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 d-none d-lg-block d-xl-block">© 2020 Copyright : Edu Dev | Bulit under supervision of Mr. Shah & Company
+  </div>
+  
+  <div class="footer-copyright text-center py-3 d-sm-block d-lg-none">© 2020 Copyright : Edu Dev | Mr. Shah
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $('#navbarToggleExternalContent').click(function(){
+            $("#navbarToggleExternalContent").collapse('hide');
+        });
+        // $('#t1').tooltip('enable');
+        $('#t2').tooltip('enable');
+        $('#t3').tooltip('enable');
+        $('#t4').tooltip('enable');
+        $('#t5').tooltip('enable');
+        $('#t6').tooltip('enable');
+        $('#t7').tooltip('enable');
+      
+        
+    </script>
+      
+  </body>
+{% endblock body %} 
+</html>    

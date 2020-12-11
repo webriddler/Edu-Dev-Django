@@ -1,0 +1,825 @@
+{% extends 'index.html' %}
+{% block body %} 
+{% load static %}     
+<style type="text/css">
+      a,a:hover{
+      text-decoration: none;
+      color: currentColor;
+      text-underline-position: none;
+      }
+      body{
+        font-family: "Roboto";
+        margin: 0;
+        padding: 0;
+      }
+      .navtext{
+        font-size: 24px;
+        color: #5f6368;
+        font-family: Quicksand;
+        font-weight: normal;
+
+      }
+    
+      .tit{
+
+        border: 0px solid;
+        background-image: url({% static '/back.svg' %});
+        background-repeat: no-repeat;
+        background-position: 50% 60%;
+        background-size: 70%;
+      }
+      .ct{
+        font-size: 32px;
+        text-align: center;
+      }
+      .quesc{
+        border: none;
+        margin-bottom: 10px;
+      }
+      .ques{
+        padding: 16px 30px 16px 30px;
+      }
+      .helpcd{
+         border-radius: 12px;
+         border-color: #4285f4;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .aplf{
+        color: red;
+        border:1px solid black;
+        padding: 0px 5px;
+        border-width: 0px 1px;
+      }
+      .aplf:hover{
+        background-color: white;
+        border-width: 1px;
+        border-color: red;
+      }
+      .fdcl{
+        border-radius: 12px;
+        box-shadow: 1px 1px 4px 1px #c2c3c4;
+
+      }
+      .cdh1{
+        border-color: #fbbc04 #fbbc04 #fbbc04 #34a853;
+        border-width: 1px 1px 1px 5px;
+      }
+      .cdh2{
+        border-color:  #34a853 #34a853 #34a853 #4285f4; 
+        border-width: 1px 1px 1px 5px;
+      }
+      .cdh3{
+        border-color: #4285f4 #4285f4 #4285f4 #ea4335;
+        border-width: 1px 1px 1px 5px;
+      }
+      .cdh1:hover{
+        border:1px solid #fbbc04;
+      }
+      .cdh2:hover{
+        border:1px solid #34a853;
+      }
+      .cdh3:hover{
+        border:1px solid #4285f4;
+      }
+      .fic::before{
+        content: "| ";
+        margin-right: 5px;
+        color: grey;
+      }
+      .bck:hover{
+      	color: #4285f4;
+      }
+      .cont1:hover{
+      	background-color: #fbbc04;
+      	color: white;
+      }
+      .cont2:hover{
+      	background-color: #4285f4;
+      	color: white;
+      }
+      .lk:hover{
+        text-decoration: underline;
+        color: black;
+      }
+      .cont3:hover{
+      	background-color: #ea4335;
+      	color: white;
+      }
+
+      {% if null == 'True' %}
+      .wr{
+        border-color: red;
+      }
+      {% endif %}
+
+      {% if wrongmail == 'True' or wronguser == 'True' %}
+        .alert1{
+          background-color: #ea4335;
+          color: white;
+          width: 87%;
+        }
+          .wr{
+            border-color: red;
+          }
+
+      {% elif wrongmail == 'False' or wrongmail == 'False' %}
+      .alert1{
+        background-color: #34a853;
+        color: white;
+        width: 87%;
+      }
+      .wr{
+            border-color: green;
+
+      }
+      {% endif %}
+
+
+      </style>
+    <title>Edu Dev</title>
+</head>
+<body>
+  <nav class="navbar navbar-light quesc">
+    <a class="navbar pl-0" href="/">
+      <span class="material-icons">
+      first_page
+      </span>
+      <span class="navtext ml-3 d-none d-lg-block d-xl-block"> Edu Dev <small style="font-family: roboto;line-height: 8px;">Help </small></span></a>
+</nav>
+<div class="container mt-2 ">
+  <div class="row justify-content-md-center d-none d-lg-block d-xl-block  pt-5 pb-5 tit" >
+     <div class="col-md-auto">
+      <div class="container justify-content-md-center mt-2 " >
+        <div class="mt-5 ct">Edu Dev</div>
+        <div class="mb-5 ct" style="color: #3478e5;">How can we help you ?</div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- MOBILE VIEW -->
+  <div class="row justify-content-md-center d-sm-block d-lg-none tit" style="background-image: none;">
+     <div class="col-md-auto">
+      <div class="container justify-content-md-center mt-2 " >
+        <div class="ct">Edu Dev</div>
+        <div class="mb-5 ct" style="color: #3478e5;">How can we help you ?</div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- END OF MOBLIE VIEW -->
+  {% if again == 'True' %}
+  <a href="">
+  <div class="alert alert-warning mx-auto" role="alert" style="width: 87%">
+    You can't complain more than twice as a subscriber, wait till your earlier issues get solved.
+  </div>
+</a>
+{% endif %}
+  {% if null == 'True'%}
+  <a href="">
+  <div class="alert alert-primary mx-auto" role="alert" style="width: 87%">
+    Fill Help Form either as User or as Subscriber
+  </div>
+</a>
+  {% endif %}
+  {% if wrongmail != '' or wronguser != '' %}
+  <a href="">
+    <div class="mx-auto alert alert1" role="alert">
+      {% if wrongmail == 'True' %}
+            Not a Subscribed user
+        {% elif wrongmail == 'False' %}
+            Your Requst has sent Successfully
+      {% endif %}
+
+        {% if wronguser == 'True' and nameval == '' %}
+              Unauthenticated User Id has given
+        {% elif nameval != '' %}
+                {{nameval}}
+
+        {% elif wronguser == 'False' %}
+              Requst Sent Successfully Action Report will delivered soon to your panel.  
+      {% endif %}
+       
+      </div>
+    </a>
+
+  {% endif %}
+
+      {% if wrongmail == '' and wronguser == '' and nameval == '' and null == '' %}
+
+    <div class="mb-1" style="margin-left: 6%;">Frequently Asked Questions</div>
+  <div style="padding: 1% 5% 1% 5%;">
+  <div class="accordion" id="accordionExample">
+    <div class="card quesc" >
+      <a type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
+      <div class="card-header ques" id="headingOne" style="border-radius: 24px;">
+        <h2 class="mb-0" style="font-size: 18px;">
+            Q &nbsp;Can't Access your Student Panel ? 
+        </h2>
+      </div>
+    </a>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="container" style="padding: 0px 3% 0px 4%;">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg pr-0" style="position: 0;">
+            <div class="card-body " style="display: inline-block;">
+
+          <a type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+          <div class="card  helpcd">
+          <div class="card-body">
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 20px;">
+                Are you Forget your Password
+              </div>
+              <div class="p-2 bd-highlight"><span class="material-icons" style="font-size: 32px;color: #ea4335">
+              vpn_key
+              </span>
+              </div>
+              </div>
+              </div>
+           
+          </div></a>
+        </div>
+         <div class="collapse multi-collapse " id="multiCollapseExample1">
+            <div class="alert alert-primary" role="alert">
+              In case if you have forget or lost your password you need to fill a  
+              <a href="#" class="aplf">
+              Password reissuing 
+              Application Form</a> to change your password, remember application should be undersigned by parents and class teacher respectively
+            </div>
+        </div>
+          </div>
+          <div class="col-md-auto ml-0 center" style="text-align: justify;font-size: 22px;">
+            OR
+          </div>
+          <div class="col col-lg">
+            <div class="card-body" style="display: inline-block;">
+              <a type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+          <div class="card helpcd">
+          <div class="card-body">
+            <div class="d-flex bd-highlight">
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 20px;">
+                Are your Auhentication Denied
+              </div>
+              <div class="p-2 bd-highlight">
+              <span class="material-icons" style="font-size: 32px;color: #ea4335">
+              error
+              </span>
+              </div>
+              </div>
+              </div>
+           
+          </div></a>
+        </div>  
+         <div class="collapse multi-collapse " id="multiCollapseExample2">
+            <div class="alert alert-primary" role="alert">
+              In case if your authentication has denied than
+              its only solution is to <span  class="aplf">consult the admin incharge</span> who has suspended your id. 
+              <p class="text-muted">Generally it happens when you marked as defaulter for violenting rules and principles of the school</p>
+            </div>
+        </div>
+          </div>
+      </div>
+    </div>      
+          
+        </div>
+      </div>
+    </div>
+    <div class="card quesc">
+      <a type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false">
+      <div class="card-header ques" id="headingtwo" style="border-radius: 24px;">
+        <h2 class="mb-0" style="font-size: 18px;">
+             Q &nbsp;Want to connect with us for your queries - Contact us ?
+        </h2>
+      </div>
+    </a>
+      <div id="collapsetwo" class="collapse" aria-labelledby="headingtwo" data-parent="#accordionExample">
+        <div class="card-body pb-1">
+          <div class="d-flex bd-highlight">
+          <div class="p-2 bd-highlight center">
+            <span class="material-icons pb-3 mr-2" style="font-size: 35px;color: #4285f4;">
+            school
+            </span>
+          </div>
+          <div class=" flex-grow-1 bd-highlight">
+            <div class="alert alert-warning" role="alert">
+            We are 24 X 7 hours avialable for our users. If you want to connect with us, you're hurtly invited.  <a href="#carouselExampleControls" class="aplf" data-slide-to="2" href="#" >Connect Now</a>
+          </div>
+          </div>
+          </div>
+          </div>
+      </div>
+    </div>
+    <div class="card quesc">
+      <a type="button" data-toggle="collapse" data-target="#collapsethree">
+      <div class="card-header ques" id="headingthree" style="border-radius: 24px;">
+        <h2 class="mb-0" style="font-size: 18px;">
+            Q &nbsp;Is there any fake or wrong content published on the home screen ?
+        </h2>
+      </div>
+    </a>
+      <div id="collapsethree" class="collapse  pl-3 pr-3" aria-labelledby="headingthree" data-parent="#accordionExample">
+        <div class="card mt-2" style="border:none;">
+          <div class="card-body pb-1">
+          <div class="d-flex bd-highlight">
+          <div class="p-2 bd-highlight center">
+            <span class="material-icons pb-3 mr-2" style="font-size: 35px;color: red;">
+            report
+            </span>
+          </div>
+          <div class=" flex-grow-1 bd-highlight">
+            <div class="alert alert-warning" role="alert">
+            It is quite hard for us to believe that our site can have such issue because it is under the control of our skilled employees, but we respect your suggestions too so have a  <a href="#carouselExampleControls" class="aplf" data-slide="next">report now</a> to inform us regarding our mistakes.
+          </div>
+          </div>
+          </div>
+              
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="card quesc">
+      <a type="button" data-toggle="collapse" data-target="#collapseFour">
+      <div class="card-header ques" id="headingfour" style="border-radius: 24px;">
+        <h2 class="mb-0" style="font-size: 18px;">
+             Q &nbsp;Can't Subscribe to our page because of repeated error issues ?
+        </h2>
+      </div>
+    </a>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+        <div class="card-body pb-1">
+          <div class="d-flex bd-highlight">
+          <div class="p-2 bd-highlight center">
+            <span class="material-icons pb-3 mr-2" style="font-size: 35px;color: red;">
+            person_add_disabled
+            </span>
+          </div>
+          <div class=" flex-grow-1 bd-highlight">
+            <div class="alert alert-warning" role="alert">
+            If you are not able to subscribed to our site which should not be there and we are deeply sorry for this issue but give us once more chance. Please again Subscribed by 
+            <ul>
+              <li style="color: #4285f4">Clearing your Cookies</li>
+              <li style="color: #4285f4">Be sure that you have not subscribed earlier with existing Email</li>
+              <li style="color: #4285f4">Be sure Your Network Connection is Secured and Private</li>
+              <li>Make sure that there is no message on home screen regarding server closing or mentainence.</li>
+
+            </ul>
+            <p>If nothing could work than please let make a 
+            <a href="#carouselExampleControls" data-slide-to="2" class="aplf" role="button" href="#">Contact us</a> to inform us regarding this issue. We will reply you shortly.</p>
+          </div>
+          </div>
+          </div>
+              
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+<div id="carouselExampleControls" class="carousel slide" data-interval="false">
+    <div id='stc' class="carousel-inner">
+      {% if wrongmail == '' and wronguser == '' and  nameval == '' and null == '' %}
+    <div class="carousel-item active">
+      {% else %}
+      <div class="carousel-item">
+
+    {% endif %}
+       
+           <div class="mb-1 mt-3" style="margin-left: 6%;">Student Categories</div>     
+      <div class="container" style="padding: 0px 4%;">
+          <div class="row">
+            <div class="col-sm">
+              <div class="p-2 flex-fill bd-highlight">
+      <div class="list-group" >
+        <div class="list-group-item cdh1" style="border-radius: 14px;">
+           <div class="d-flex bd-highlight">
+          <div class="flex-grow-1 bd-highlight">
+            <h5 class="mb-1">Q Your Panel Denied Updates ?</h5>
+          <p class="mb-1">
+            Login again as an authenticate user + secure + private connection. If the same issue found <a href="#carouselExampleControls" role="button" data-slide="next" class="aplf" style="color: black;"> Report us Now</a> with last update date of the panel.
+
+          </p>
+          </div>
+           <div class="bd-highlight pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://cdn6.aptoide.com/imgs/0/7/4/074eac5dee2a615f875e45804a7a6dff_icon.png?w=256"style="width: 90px;height: 90px;">
+             <!-- End -->
+            </div>
+        </div>
+         <small class="text-muted">Regarding Passsword Threat issues</small>
+         
+      </div>
+        <div  class="list-group-item list-group-item mt-2 cdh2"  style="border-radius: 14px;border-top: 1px solid #34a853;">
+          <div class="d-flex ">
+          <div class="flex-grow-1">
+            <h5 class="mb-1">Q Study material issues ? </h5>
+          <p class="mb-1">
+            If your assignment links are not working or for any technical issues regarding e-support kindly <a href="#" class="aplf" style="color: black;">consult your class Incharge </a>
+          </p>
+          </div>
+           <div class="pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://www.glidetraining.com/wp-content/uploads/2016/05/Google-Docs-2015.png"style="width: 90px;height: 90px;">
+             <!-- End -->
+            </div>
+        </div>
+        <small class="text-muted">Regarding Assignment or Project, technical issues</small>
+          
+        </div>
+        <div class="list-group-item list-group-item mt-2 cdh3"  style="border-radius: 14px;border-top: 1px solid #4285f4;">
+          <div class="d-flex ">
+          <div class="flex-grow-1 bd-highlight">
+            <h5 class="mb-1">Q Change/secure password ?</h5>
+          <p class="mb-1">
+            Submit <a href="#" class="aplf" style="color: black;">Password Reissuing 
+              Appl. Form</a> to the school authorities,signed by the class teacher before  filling new password on the sform.
+          </p>
+          <small class="text-muted mt-3">Regarding Passsword Threat issues</small>
+          </div>
+           <div class="pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://i.pinimg.com/originals/e9/00/e1/e900e181def7b1102fd056ffab60823a.png"style="width: 90px;">
+             <!-- End -->
+            </div>
+        </div>
+          
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="p-2 flex-fill bd-highlight">
+          <div class="list-group">
+        <div class="list-group-item list-group-item cdh2"  style="border-radius: 14px;border-top: 1px solid #34a853;">
+          <div class="d-flex ">
+          <div class="flex-grow-1 bd-highlight">
+            <h5 class="mb-1">Q Failed to have tenure post ?</h5>
+          <p class="mb-1">
+            You don't be able to access tenure files before its timings but even after that your access denies <a href="#carouselExampleControls" role="button" data-slide="next" class="aplf" style="color: black;">Report us Now</a> meanwhile take help from classmates to make your work done.
+          </p>
+          </div>
+           <div class="pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://www.glidetraining.com/wp-content/uploads/2016/05/Google-Docs-2015.png"style="width: 90px;height: 90px;">
+             <!-- End -->
+            </div>
+        </div>
+          <small>Regarding Tenure Files accessing issues.</small>
+        </div>
+        <div class="list-group-item list-group-item cdh3 mt-2"  style="border-radius: 14px;border-top: 1px solid #4285f4;">
+          <div class="d-flex ">
+          <div class="flex-grow-1 bd-highlight">
+            <h5 class="mb-1">Q File Submission Request Denies ?</h5>
+          <p class="mb-1">
+           If your healthy files are not uploading to our way due to link breakage with the server or maybe for other issues.  <a href="#carouselExampleControls" role="button" data-slide="next" class="aplf" style="color: black;">Report us Now </a> 
+          </p>
+          </div>
+           <div class="pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://pbs.twimg.com/profile_images/783326692181958657/LUr6wzW7_400x400.jpg"style="width: 90px;height: 90px;">
+             <!-- End -->
+            </div>
+        </div>
+          <small class="text-muted">Regarding File Submission Server Error</small>
+        </div>
+        <div class="list-group-item list-group-item mt-2 cdh1"  style="border-radius: 14px;border-top: 1px solid #fbbc04;" >
+          <div class="d-flex ">
+          <div class="flex-grow-1 bd-highlight">
+            <h5 class="mb-1">Q Want to update profile info?</h5>
+          <p class="mb-1">
+            Submit <a href="#" class="aplf" style="color: black;">Profile Updation Appl. Form</a> to school authorities,under signed by both class teacher and parents.
+          </p>
+          </div>
+           <div class="pt-2 pl-1">
+            <!-- Image Area -->
+             <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/dataandpersonalization_icon_96x96_cdb6dff2e31ed6745ece4662231bfd48.png"style="width: 100px;">
+             <!-- End -->
+            </div>
+        </div>
+        <small class="text-muted">Regarding profile updation process</small>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="container w-75 pt-4 d-none d-lg-block mb-1" style="padding: 0px 3% 0px 3%;">
+  <div class="card fdcl">
+          <div class="card-body" style="padding: 15px 25px 0px 25px;">
+            <div class="d-flex bd-highlight " style="line-height: 30px;">
+              <div class="p-2 bd-highlight"><span class="material-icons" style="font-size: 32px;color: #4285f4;line-height: 30px;">
+              textsms
+              </span>
+              </div>
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 16px;padding: 0px 25px;">
+              <span style="font-weight: bold;font-size: 18px;">Not what you're looking for?</span> Try asking the Help Community
+
+              </div>
+              <a href="#carouselExampleControls" role="button" data-slide="next" >
+              <div class="p-2 bd-highlight" style="font-size: 16px;color: #1A73E8;">Ask now
+              </div> </a>
+              <div class="p-2 bd-highlight"style="color: #1A73E8"><span class="material-icons" style="font-size: 26px;line-height: 30px;">
+              arrow_forward
+              </span>
+              </div>
+              </div>
+              </div>
+           
+          </div></a>
+    </div>
+    <!-- ONLY will be shown on MOBILE VIEW -->
+       <div class="container w-75 pt-4  d-sm-block d-lg-none  w-100 pb-2">
+  <div class="card fdcl">
+          <div class="card-body" style="padding: 15px 25px 0px 25px;">
+            <div class="d-flex bd-highlight " style="line-height: 30px;">
+              <div class="p-2 bd-highlight"><span class="material-icons" style="font-size: 32px;color: #4285f4;line-height: 30px;">
+              textsms
+              </span>
+              </div>
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 16px;padding: 0px 25px;">
+              <span style="font-weight: bold;font-size: 18px;">Still unsolved ?</span> 
+
+              </div>
+              <a href="#carouselExampleControls"   role="button" data-slide="next">
+              <div class="p-2 bd-highlight" style="font-size: 16px;color: #1A73E8;">Ask now
+              </div> </a>
+              <div class="p-2 bd-highlight"style="color: #1A73E8"><span class="material-icons" style="font-size: 26px;line-height: 30px;">
+              arrow_forward
+              </span>
+              </div>
+              </div>
+              </div>
+           
+          </div>
+    </div>
+    <!-- MOBILE VIEW OVER -->
+<!-- Static Element End -->
+</div>
+
+<!-- Starting of the Dynamic Section of the Page -->
+{% if wrongmail == '' and wronguser == '' and nameval == '' and null == '' %}
+  <div class="carousel-item"  data-interval="false ">
+    {% else %}
+    <div class="carousel-item active"  data-interval="false ">
+      {% endif %}
+    <div class="mb-1 mt-1" style="margin-left: 6%;">
+    	 <div class="d-flex bd-highlight">
+    	 <a href="#carouselExampleControls" role="button" data-slide="prev">	
+		  <div class="p-3 bd-highlight">
+	  	  <span class="material-icons bck" style="line-height: 5px;font-size: 24px;">
+				  first_page
+				  </span>
+
+		  </div></a>
+		  <div class="flex-grow-1 bd-highlight" style="padding-top: 10px;">
+      {% if wrongmail == '' and wronguser == '' and nameval == '' and null == ''%}
+		  	<a href="#carouselExampleControls" role="button" data-slide="prev">
+		  	Back to Menu</a>
+        {% else %}
+        <a href="">
+        Back to Menu</a>
+        {% endif %}
+		  </div>
+		</div>
+  </div>
+      <div>     
+      <div class="container" style="padding: 0px 10% 0px 2%;">
+		  <div class="row">
+		    <div class="col-sm-4 d-none d-lg-block" style="margin-right: 5%;">
+		    	<img src="https://ideasignage.com/images/privacy/privacy1.svg" style="width: 165%;height: 100%;">
+		    </div>
+		    <div class="col-sm-7">
+          <!-- Forms -->
+		    	<form class="p-3" method="POST" style="margin-left: 20%;">
+            {% csrf_token %}
+    			<p class="h4 mb-4 text-center" style="font-family: Quicksand;">Edu Dev Instant Help</p>
+
+              {% if activsub == '' or activsub == 'True' %}
+              {{form2.subscriber}}
+    			  <small id="passwordHelpBlock" class="form-text text-muted">
+
+			   &nbsp;&nbsp;For <a href="/#subsform" class="lk">Subscribers</a>  Only 
+			</small>
+            {% endif %}
+          {% if activsub == '' or activsub == 'False' %}
+    			  <div class="text-center mb-1">OR</div>
+		   <div class="form-row align-items-center" >
+		    <div class="col-sm-3 my-1" style="flex: none; max-width: 50%;">
+		      <label class="sr-only" for="inlineFormInputName">First Name</label>
+		      {{form2.name}}
+		      
+		    </div>
+		    <div class="col-sm-3 my-1"style="flex: none; max-width: 50%;" >
+		      <label class="sr-only" for="inlineFormInputGroupUsername">User Id</label>
+		      <div class="input-group">
+		        <div class="input-group-prepend">
+		          <div class="input-group-text">@</div>
+		        </div>
+		        {{form2.user}}
+		      </div>
+		    </div>
+	</div>
+  {% endif %}
+			 <div class="form-group mt-3">
+		    {{form2.description}}
+		  </div>
+		  <!-- Desktop Users -->
+		  <div class="custom-control custom-switch d-none d-lg-block">
+		  <input type="checkbox" class="custom-control-input" id="customSwitch1" required >
+		  <label class="custom-control-label" for="customSwitch1">I am agree with Terms & Conditions.</label>
+		</div>
+		<!-- End -->
+		<!-- Mobile Users -->
+		<div class="custom-control custom-switch d-sm-block d-lg-none">
+		  <input type="checkbox" class="custom-control-input" id="customSwitch1">
+		  <label class="custom-control-label" for="customSwitch1">Agree with all T&Cs.</label>
+		</div>
+		<!-- End -->
+
+		    <!-- Sign in button -->
+         {% if null == 'True' %}
+         <a href="">
+            <div class="alert alert-primary text-center mt-3" role="alert">
+              Fill the Form
+            </div>
+          </a>
+           {% endif %}
+        {% if wrongmail == '' and wronguser == '' and null == '' and again == '' %}
+		    <button class="btn btn-primary btn-block mt-3 ml-1 " type="submit">Submit</button>
+        {% else %}
+
+          {% if wrongmail == 'True' %}
+          <div class="mx-auto alert alert1 w-100 mt-2 text-center" role="alert">
+            <a href="/">
+                Subscribe Now 
+            </a>
+          </div>
+          {% elif wrongmail == 'False' %}
+          <div class="mx-auto alert alert1 w-100 mt-2 text-center" role="alert">
+            <a href="">
+               Subscriber Request has Sent 
+            </a>
+          </div>
+        {% endif %}
+
+          {% if wronguser == 'True' %}
+            <div class="mx-auto alert alert1 w-100 mt-2 text-center" role="alert">
+            <a href="">
+               Unauthorised user 
+            </a>
+          </div> 
+
+          {% elif wronguser == 'False' %}
+             <div class="mx-auto alert alert1 w-100 mt-2 text-center" role="alert">
+            <a href="">
+               User Request has Sent
+            </a>
+          </div>  
+        {% endif %}
+        {% if again == 'True' %}
+        <div class="mx-auto alert alert-warning alert1 w-100 mt-2 text-center" role="alert">
+            <a href="">
+               Request has Suspended
+            </a>
+          </div> 
+        {% endif %}
+
+        {% endif %}
+      </form>
+		    </div>
+		  </div>
+	</div>
+
+<!-- form subscription -->
+
+   </div>
+
+  </div>
+  <div class="carousel-item"  data-interval="false ">
+  	 <div class="d-flex bd-highlight" style="margin-left: 6%;">
+    	 <a href="#carouselExampleControls" role="button" data-slide="prev">	
+		  <div class="p-3 bd-highlight">
+	  	  <span class="material-icons bck" style="line-height: 5px;font-size: 24px;">
+				  first_page
+				  </span>
+
+		  </div></a>
+		  <div class="flex-grow-1 bd-highlight" style="padding-top: 10px;">
+		  	<a href="#carouselExampleControls" role="button" data-slide-to="0" href="#">
+		  	Back to Menu</a>
+		  </div>
+		</div>
+  	<div class="card mb-3 text-center"  style="margin-left: 6%;border:none;">
+	  <img src="https://www.gstatic.com/policies/privacy/b18d13e9ea8a362642b7d25bce665039.svg" class="card-img-top mx-auto d-none d-lg-block" style="width: 50%;">
+	 <div class="container w-auto pt-3 mb-1" style="padding: 0px 3% 0px 3%;">
+	 	 <!-- MAp -->
+	 	 <a href="">
+          <div class="card cont1 ml-2 mr-2" style="display: inline-block;border-color:#fbbc04;">
+          <div class="card-body" style="padding: 15px 25px 0px 25px;">
+            <div class="d-flex bd-highlight " style="line-height: 30px;">
+              <div class="p-2 bd-highlight"><span class="material-icons" style="font-size: 32px;color: #fbbc04;line-height: 30px;">
+              location_on
+              </span>
+              </div>
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 16px;padding: 0px 25px;">
+             Sect. 13 Jal. Punjab 044120
+              </div>
+              
+          </div>
+          </div>
+       
+          </div>
+      </a>
+          <!-- Map -->
+	 	<!-- Call -->
+  	<div class="card cont2 m-2" style="display: inline-block; border-color:#4285f4; ">
+          <div class="card-body" style="padding: 15px 25px 0px 25px;">
+            <div class="d-flex bd-highlight " style="line-height: 30px;">
+              <div class="p-2 bd-highlight"><span class="material-icons " style="font-size: 32px;color: #4285f4;line-height: 30px;">
+              call
+              </span>
+              </div>
+              <div class="p-2 flex-grow-1 bd-highlight" style="font-size: 16px;padding: 0px 25px;">
+             2584 456123 | 1473 25801 
+              </div>
+              
+          </div>
+          </div>
+       
+          </div>
+          <!-- End -->
+          <!-- Email -->
+          <div class="card cont3 ml-2" style="display: inline-block;border-color:#ea4335;">
+          <div class="card-body" style="padding: 15px 25px 0px 25px;">
+            <div class="d-flex bd-highlight " style="line-height: 30px;">
+              <div class="p-2 bd-highlight"><span class="material-icons" style="font-size: 32px;color: #ea4335;line-height: 30px;">
+              alternate_email
+              </span>
+              </div>
+              <div class="p-2 pr-3 pl-3 flex-grow-1 bd-highlight" style="font-size: 16px;padding: 0px 25px;">
+            	instanthelp@edudev.com
+              </div>
+              
+          </div>
+          </div>
+       
+          </div>
+          <!-- Email -->
+
+    </div>
+</div>
+  </div>
+  </div> <!---Last End of the Crousel Platform-->
+  <!-- Ending of the Dynamic Section of the Page -->
+
+</div>
+</div>
+  
+</div>
+<!-- Footer -->
+ <div class="modal-footer" style="border-bottom: solid 1px #DEE2E6; margin-top: 3%;padding: 6px; ">
+  <span class="fic"><i class="fab fa-facebook-f"></i></span>
+  <span class="fic"><i class="fab fa-twitter "></i></span>
+  <span class="fic"><i class="fab fa-youtube"></i></span>
+  <span class="fic"><i class="fab fa-linkedin-in"></i></span>
+  
+  </div>
+<footer class="page-footer font-small  mb-1 text-muted" style="background-color: #F7F7F7">
+
+  <!-- Copyright -->
+ <div class="footer-copyright text-center py-3 d-none d-lg-block d-xl-block">© 2020 Copyright : Edu Dev | Bulit under supervision of Mr. Shah & Company
+  </div>
+  
+  <div class="footer-copyright text-center py-3 d-sm-block d-lg-none">© 2020 Copyright : Edu Dev | Mr. Shah
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $('#collapseTwo').click(function(){
+            $("#collapseTwo").collapse('hide');
+            
+        });
+        $('#collapseThree').click(function(){
+            $("#collapseThree").collapse('hide');
+            
+        });
+        $('#collapsefour').click(function(){
+            $("#collapsefour").collapse('hide');
+            
+        });
+        
+    </script>
+
+  </body>
+{% endblock body %}

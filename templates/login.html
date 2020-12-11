@@ -1,0 +1,185 @@
+    {% extends 'index.html' %}
+{% block body %} 
+{% load static %}     
+  
+    <style type="text/css">
+      a,a:hover{
+      text-decoration: none;
+      color: currentColor;
+      text-underline-position: none;
+      }
+      body{
+        font-family: "Roboto";
+        margin: 0;
+        padding: 0;
+      }
+      .navtext{
+        font-size: 24px;
+        color: #5f6368;
+        font-family: Quicksand;
+        font-weight: normal;
+
+      }
+      .quesc{
+        border: none;
+        margin-bottom: 10px;
+      }
+      button{
+        padding: 0px;
+        border:none;
+        background-color: unset;
+      }
+      .quhlp{
+        color: #b5b8bc;
+        opacity: 0.8;
+      }
+      .quhlp:hover{
+        color:black;
+      }
+      </style>
+      <title>Edu Dev</title>
+<body>
+ <nav class="navbar navbar-light quesc">
+    <a class="navbar pl-0" href="/">
+      <span class="material-icons">
+      first_page
+      </span>
+      <span class="navtext ml-3 d-none d-lg-block d-xl-block" > Edu Dev <small style="font-family: roboto;">Student Login</small></span>
+
+    </a>
+  </nav>
+  <div class="container mt-3" style="max-width: 70%;">
+    <div class="mt-1 d-none d-lg-block d-xl-block "style="text-align: center;font-size: 34px;font-family: Quicksand;">Edu Dev</div>
+    <div class="row pr-5 mt-3" style="border:1px solid #d9dadb;margin-top: 10px;">
+      <div class="col-sm-7">
+        <div class="card"style="border:none;padding-left: 20%;">
+          
+          <div class="d-sm-block d-lg-none " id="t4" data-toggle="tooltip" data-placement="right" title="Want help ?" style="position: absolute;left: 0;padding-top: 12px;">
+           <a href="help.html">
+          <span class="material-icons p-0 quhlp">
+            help_outline 
+            </span></a>
+          </div>
+         
+         <form class="text-center mx-auto pt-2" method="POST" action="">
+            {% csrf_token %}
+
+          <!-- desktop User -->
+          <!-- Mobile Heading -->
+          <p class="mt-5 mb-2 d-sm-block d-lg-none" style="font-family: Quicksand;font-size: 20px;" >Edu Dev</p>
+          <!-- End -->
+
+          <p class="h4 mb-2 mt-5 d-none d-lg-block d-xl-block" >Student Education Panel</p>
+          <!-- End -->
+
+          <!-- Mobile User -->
+          <p class="h4 mb-2 d-sm-block d-lg-none">Student Panel</p>
+          <!-- End -->
+          
+          <p>Check your Daily Assignments and Notifications Now</p>
+
+              <div class="card">
+            <div class="d-flex bd-highlight">
+
+             <div class="p-2 flex-grow-1 bd-highlight ">
+
+              <div class="input-group ">
+              {% if login == 'fail' %}
+
+                {% if pwd == 'fail' %}
+
+                <a href="">
+            <div class="alert alert-danger d-none d-lg-block d-xl-block" role="alert" style="background-color: #ea4335;color: white;">
+                Password is not valid as per User ID, Try Again
+                 </div>
+                 </a>
+                 <a href="">
+            <div class="alert alert-danger d-sm-block d-lg-none" role="alert" style="background-color: #ea4335;color: white;">
+                Wrong Key as per ID 
+                 </div>
+                 </a>
+            {% else %}
+            <a href="">
+            <div class="alert alert-danger d-none d-lg-block d-xl-block" role="alert" style="background-color: #ea4335;color: white;">
+                Unauthorised User ID has entered, Try Again.
+                 </div>
+                 </a>
+                 <a href="">
+            <div class="alert alert-danger d-sm-block d-lg-none" role="alert" style="background-color: #ea4335;color: white;">
+                Invalid User Id has Entered
+                 </div>
+                 </a>
+                 {% endif %}
+              {% else %}
+              <div class="input-group-prepend d-none d-lg-block d-xl-block">
+                 <span class="input-group-text" id="inputGroupPrepend">edudev@</span>
+            </div>
+          <input type="text" class="form-control" placeholder="User Id" name="userid" required style="text-align: center;font-family: Roboto;text-transform: uppercase;">
+          <input type="Password" class="form-control" name="password" placeholder="Password" required style="text-align: center;font-family: Roboto; ">
+          
+          {% endif %}
+             </div>
+
+           </div>
+            
+           {% if login != 'fail' %}
+            <div class="p-2 bd-highlight">
+              <button type="submit">
+           <span class="material-icons p-1 pl-0" style="font-size: 28px;">
+          send
+            </span>
+          </button> 
+          </div>
+          {% endif %}
+
+          </div>
+
+        </div>
+        <a href="/instanthelp">
+        <div style="text-align: right;color: #4687F0" class="m-2 d-none d-lg-block d-xl-block">
+          Can't Login, Need help ?
+        </div>
+      </a>
+          <!-- Email -->
+
+          <!-- Sign in button -->
+      </form>
+
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="card mt-3" style="border:none; margin-left: 25%;" >
+          <img src="{% static '/userlogin.png' %}" style="width: 100%;">
+        </div>
+      </div>
+  </div>
+
+  <div class="container d-none d-lg-block d-xl-block" style="margin-top: 6%;">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-grow-1 bd-highlight pr-4">
+    <p class="text-muted">Only you can see your page. Except assignments, projects, notice and other content marked as group contents are accessible to all students, but your profile, fees defaulter status are totally secure, private and safe with us.
+      </p>
+      </div>
+      <div class="p-2 bd-highlight pr-3">
+        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/privacypolicy_icon_48x48_0a9fd77820564aed2e74f410ec577314.png">
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+
+
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script>
+        $('#navbarToggleExternalContent').click(function(){
+            $("#navbarToggleExternalContent").collapse('hide');
+        });
+          $('#t4').tooltip('enable');
+    </script>
+  </body>
+{% endblock body %}
